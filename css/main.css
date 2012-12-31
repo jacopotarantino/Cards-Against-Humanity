@@ -326,6 +326,7 @@ textarea {
 .black-card {
 	width:170px;
 	height:230px;
+	margin:10px;
 	background:#000;
 	border-radius:5px;
 	box-sizing:border-box;

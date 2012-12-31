@@ -47,8 +47,14 @@ function White_Cards () {
 			card_i.add_to_whites();
 		}
 	};
-	
-	return "<div class='white-cards-2'>";
 }
 var whitey = new White_Cards();
 whitey.initialize();
+
+var initialize_session = (function() {
+	$.post('/server/api.php',
+	{user_ID:42, game_ID:8859},
+	function(data) {
+		x = data;
+	});
+})();
