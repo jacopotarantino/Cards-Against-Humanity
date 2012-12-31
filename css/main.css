@@ -304,8 +304,23 @@ textarea {
    ========================================================================== */
 
 .container {
-	width:66%;
-	margin:0 auto;
+	width:80%;
+	margin:0;
+	padding:0;
+	float:left;
+}
+
+.sidebar {
+	width:20%;
+	margin:0;
+	padding:0;
+	float:left;
+}
+
+.warnings {
+	text-align:center;
+	font-size:24px;
+	padding:10px;
 }
 
 .black-card {
@@ -318,6 +333,18 @@ textarea {
 	color:#fff;
 	font-size:16px;
 	box-shadow:1px 1px 5px #bbb;
+	-webkit-transition:all 0.3s;
+	position:relative;
+	-webkit-animation: black-flip 1s;
+}
+
+.black-card .logo, .white-card .logo {
+	position:absolute;
+	bottom:0;
+}
+.black-card .logo:before, .white-card .logo:before {
+	content:"© Jacopo Tarantino";
+	font-size:0.5em;
 }
 
 .white-card {
@@ -330,5 +357,24 @@ textarea {
 	color:#000;
 	font-size:14px;
 	border:2px solid #bbb;
-	box-shadow:1px 0 5px #999;
+	box-shadow:1px 0px 2px #999;
+	-webkit-transition:all 0.3s;
+	-webkit-animation: white-flip 0.4s;
+	float:left;
+	margin:10px;
+}
+
+.white-card:hover {
+	position:relative;
+	top:-3px;
+	box-shadow:1px 0px 5px #888;
+}
+
+@-webkit-keyframes black-flip {
+	from { -webkit-transform:rotateY(180deg); color:#000; }
+	to { -webkit-transform:rotateY(0deg); color:#fff; }
+}
+@-webkit-keyframes white-flip {
+	from { -webkit-transform:rotateY(180deg); color:#fff; }
+	to { -webkit-transform:rotateY(0deg); color:#000; }
 }
