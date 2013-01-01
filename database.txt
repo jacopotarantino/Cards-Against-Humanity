@@ -1,0 +1,10 @@
+database structure
+
+don't save user ids or other session info
+
+game
+	id
+	users
+		id
+		score
+		card

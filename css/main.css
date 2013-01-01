@@ -363,10 +363,10 @@ textarea {
 	-webkit-animation: white-flip 0.4s;
 	float:left;
 	margin:10px;
+	position:relative;
 }
 
 .white-card:hover {
-	position:relative;
 	top:-3px;
 	box-shadow:1px 0px 5px #888;
 }

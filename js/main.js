@@ -1,17 +1,19 @@
-//stuff that eventually the server will be sending over to the players
-
-var server_provides = {
-	player_ID:42,
-	black_card_contents:"I'm sorry Professor, but I couldn't complete my homework because of ________.",
-	other_players_cards: {
-		p1: "A disappointing birthday party.",
-		p2: "A disappointing birthday partyasdf.",
-		p3: "A disappointing birthday party234.",
-		p4: "A disappointing birthday party7.",
-		p5: "A disappointing birthday party98.",
-		p6: "A disapp345ointing birthday party."
-	}
-}
+// get the session data from the server
+$.post('/server/api.php',
+	{init_session:true},
+	function(data) {
+		x = data;
+		server_provides = JSON.parse(data);
+	})
+	.done(function() {
+		// when ready, set up the black card in the main view
+		var judgement_card = new Card('black', server_provides.black_card_contents);
+		judgement_card.add_to_blacks();
+		
+		// add the white cards to the main view
+		var whitey = new White_Cards();
+		whitey.initialize();
+	});
 
 //create a new card and give it methods
 function Card (color,contents) {
@@ -29,16 +31,14 @@ function Card (color,contents) {
 	};
 }
 
+// function to change header text
 var warnings_update = function(the_text) {
 	$.when( $('.warnings').slideUp() ).done(function(){
 		this.html(the_text).slideDown();
 	});
 };
 
-var judgement_card = new Card('black', server_provides.black_card_contents);
-judgement_card.add_to_blacks();
-
-
+// get white cards from the server and add them to the main view.
 function White_Cards () {
 	this.initialize = function() {
 		for (a in server_provides.other_players_cards) {
@@ -48,13 +48,3 @@ function White_Cards () {
 		}
 	};
 }
-var whitey = new White_Cards();
-whitey.initialize();
-
-var initialize_session = (function() {
-	$.post('/server/api.php',
-	{user_ID:42, game_ID:8859},
-	function(data) {
-		x = data;
-	});
-})();
