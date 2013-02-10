@@ -23,4 +23,6 @@ This is a project to try and create a sleek and sexy HTML5-based online version 
 
 ## Contributing
 
-Please contribute to this project. The people who made Cards Against Humanity are awesome and open sourced their game(kinda). The least we can do is give a tiny bit back to them(and us by proxy. because let's face it: we wouldn't do this if the game weren't so fun.).
+This project is developed by a great team. The chat functionality and the base of the application logic is taken from the Chat2 project at http://css-tricks.com/chat2/ . The project also uses Foundation by Zurb. Most of the code was developed by Jacopo Tarantino. Security testing was performed by Benjamin Loula. User testing was performed by Benjamin Smith.
+
+Please contribute to this project. The people who made Cards Against Humanity are awesome and open sourced their game(kinda). The least we can do is give a tiny bit back to them(and us by proxy. because let's face it: we wouldn't do this if the game weren't so damn fun.).
