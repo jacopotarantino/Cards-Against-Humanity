@@ -7,7 +7,7 @@ This is a project to try and create a sleek and sexy HTML5-based online version 
 
 *Flood control (something like you can only submit 1 message every 5 seconds)
 *Link to logout (delete PHP session)
-*Allow some HTML, but not other (whitelist of tags). Like allow <a href="">, but still strip out javascript. Possibly a few buttons for HTML (WYSIWYG?). Code highlighting for stuff in <code> tags.
+*Allow some HTML, but still strip out javascript. Possibly a few buttons for HTML (WYSIWYG?)
 *Allow registration, for being able to have a certain username permanently (and all the stuff that goes *with that, like "lost password")
 *Protection against non-existent chat room names e.g. /Chat2/room/?name=LOL
 *Support for all special characters (UTF-8)
