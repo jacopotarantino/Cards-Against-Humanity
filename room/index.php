@@ -28,8 +28,8 @@
 <?php include("../templates/header.php"); ?>
 
 	<div class="game-area">
-		<div class="white-cards"></div>
 		<div class="black-cards"></div>
+		<div class="white-cards"></div>
 	</div>
 
 

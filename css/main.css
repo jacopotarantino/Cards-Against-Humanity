@@ -1,5 +1,9 @@
 * { margin: 0; padding: 0; }
-body { font: 14px/1.4 Georgia, Serif; background: url(../images/bg.jpg); color: white; }
+body {
+	font: 14px/1.4 Helvetica, sans-serif;
+	background: url(../images/bg.jpg);
+	color: white;
+}
 
 header h1 a { color:#fff; text-decoration:none; padding:1rem 2rem; display:inline-block; }
 
@@ -65,13 +69,10 @@ label { font-size: 20px; }
 .game-area {
 	float:left;
 }
-.white-cards {
+.black-cards {
 	float:left;
 	text-align:center;
 	width:100%;
-}
-.black-cards {
-	float:left;
 	clear:left;
 }
 
@@ -86,25 +87,25 @@ label { font-size: 20px; }
 	border-radius:5px;
 }
 .black-card {
+	width:130px;
+	height:190px;
 	background:#000;
 	color:#fff;
 	-webkit-transition:all 0.3s;	
 	-webkit-animation: black-flip 1s;
-	float:left;
-}
-.black-card:hover {
-	top:-5px;
+	margin:10px auto;
 }
 
 .white-card {
-	width:130px;
-	height:190px;
+	float:left;
 	background:#fff;
 	color:#000;
 	border:2px solid #bbb;
 	-webkit-transition:all 0.3s;
 	-webkit-animation: white-flip 0.4s;
-	margin:10px auto;
+}
+.white-card:hover {
+	top:-5px;
 }
 
 @-webkit-keyframes black-flip {

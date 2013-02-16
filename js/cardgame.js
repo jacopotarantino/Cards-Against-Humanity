@@ -1,7 +1,9 @@
 var C = (function(){
 
-	function Card (color,contents) {
-		this.html = "<div class=\"" + color + "-card\"><p class=\"card-contents\">" + contents + "</p></div>";
+	function Card (ID,color,contents) {
+		this.ID = ID;
+		
+		this.html = "<div class=\"" + color + "-card\" id=\" + ID + \"><p class=\"card-contents\">" + contents + "</p></div>";
 
 		this.add_to_whites = function() {
 			$('.white-cards').append( $(this.html) );
@@ -10,27 +12,44 @@ var C = (function(){
 			$('.black-cards').append( $(this.html) );
 		};
 	}
+
+	var newhand = function(){
+		$.post(
+			'/cards.php',
+			{
+				'new_hand':true,
+				'userID':userID
+			},
+			function(data){
+				C.carddata = JSON.parse(data);
+				for(card in C.carddata) {
+					C.mycards[card] = new Card(card,'white',C.carddata[card]);
+					C.mycards[card].add_to_whites();
+				}
+			}
+		);
+	};
 	
-	var card1 = new Card('white','some snarky setup');
-	card1.add_to_whites();
-	
-	var card2 = new Card('black','a really disgusting answer');
-	card2.add_to_blacks();
-	var card3 = new Card('black','a really disgusting answer');
-	card3.add_to_blacks();
-	var card4 = new Card('black','a really disgusting answer');
-	card4.add_to_blacks();
-	var card5 = new Card('black','a really disgusting answer');
-	card5.add_to_blacks();
-	var card6 = new Card('black','a really disgusting answer');
-	card6.add_to_blacks();
-	var card7 = new Card('black','a really disgusting answer');
-	card7.add_to_blacks();
-	var card8 = new Card('black','a really disgusting answer');
-	card8.add_to_blacks();
+	var show_the_black = function() {
+		$.post(
+			'/cards.php',
+			{'show_the_black':true,'gamename':roomid},
+			function(data) {
+				C.blackdata = JSON.parse(data);
+				C.mycards[C.blackdata.current_cardID] = new C.Card(C.blackdata.current_cardID, 'black', C.blackdata.current_card);
+				C.mycards[C.blackdata.current_cardID].add_to_blacks();
+			}
+		);
+	};
 	
 	return {
-		"Card": Card
+		"Card": Card,
+		"newhand": newhand,
+		"mycards":{},
+		"show_the_black":show_the_black
 		};
 })();
-
+$(document).ready(function(){
+	C.newhand();
+	C.show_the_black();
+});

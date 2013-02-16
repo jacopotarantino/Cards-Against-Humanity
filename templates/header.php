@@ -9,6 +9,9 @@
     <link rel="stylesheet" type="text/css" href="../css/main.css"/>
     
     <script src="../js/foundation.min.js" type="text/javascript"></script>
+	<script>
+		var userID = "<?php echo $_SESSION['userid'] ?>";
+	</script>
 </head>
 
 <body>

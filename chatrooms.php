@@ -10,27 +10,11 @@
         			 FROM chat_rooms";
         $roomResults = mysql_query($getRooms);		  
 
+
+include('templates/header.php');
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Chat Rooms</title>
-    
-    <link rel="stylesheet" type="text/css" href="css/main.css"/>
-</head>
 
-<body>
-
-	<header>
-    	<h1><a href="/">Cards Against Humanity</a></h1>
-    	<div id="you">
-			<span>Logged in as:</span> <?php echo $_SESSION['userid']?><br>
-			<a href="#" class="logout">Log out</a>
-		</div>
-    </header>
 
     <div id="page-wrap">
         
